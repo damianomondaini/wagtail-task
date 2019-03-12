@@ -1,201 +1,25 @@
-{% extends "base.html" %}
+{% extends "home.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-    <div id="overlay" class="overlay">
-        <div class="overlay__inner grid">
-            <a onclick="closeNav()" class="overlay__cross-link" href="#"><img class="overlay__cross-img" src="images/cross.svg" alt="Cross"></a>
-        </div>
-        <nav class="overlay__nav">
-            <ul class="overlay__list">
-                <li class="overlay__item"><a href="#">INSIGHTS</a></li>
-                <li class="overlay__item"><a href="team.html">THE TEAM</a></li>
-                <li class="overlay__item"><a href="#">PLAYBOOK</a></li>
-                <li class="overlay__item"><a href="#">SERVICES</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <header class="main-header main-header--small grid">        
-        <a class="main-header__logo--small" href="index.html"><img src="images/vix-logo.svg" alt="VIX Logo"></a>
-        <nav class="main-header__nav">
-            <ul>
-                <li class="main-header__nav--big"><a href="#">INSIGHTS</a></li>
-                <li class="main-header__nav--big"><a href="team.html">THE TEAM</a></li>     
-                <li class="main-header__nav--big"><a href="#">PLAYBOOK</a></li>
-                <li class="main-header__nav--big"><a href="#">SERVICES</a></li>
-                <li class="main-header__nav--small"><a onclick="openNav()" href="#"><img class="main-header__hamburger" src="images/hamburger.svg" alt="Hamburger menu"></a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="landing landing--big grid">
-        <div class="landing__container">
-            <h1 class="landing__title">We are<br><span class="title--pink">VIX Digital</span></h1>
-            <div class="landing__button-container">
-                <a class="landing__button button--filled" href="#team">Who we are ?</a>
-                <a class="landing__button button--stroke" href="#services">What we do ?</a>
-            </div>
-        </div>
-        <div class="landing__wave">
-            <header class="main-header main-header--big">
-                <nav class="main-header__nav main-header__nav--large">
-                    <ul>
-                        <li class="main-header__nav--big"><a href="#">INSIGHTS</a></li>
-                        <li class="main-header__nav--big"><a href="team.html">THE TEAM</a></li>     
-                        <li class="main-header__nav--big"><a href="#">PLAYBOOK</a></li>
-                        <li class="main-header__nav--big"><a href="#">SERVICES</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <img src="images/vix-logo.svg" alt="VIX logo" class="landing__logo">
-        </div>
-    </section>
-
-    <section class="landing landing--small grid">
-        <h1 class="landing__title">We are<br><span class="title--pink">VIX Digital</span></h1>
-        <a class="landing__button button--filled" href="#team">Who we are ?</a>
-        <a class="landing__button button--stroke" href="#services">What we do ?</a>
-    </section>
-
     <section id="team" class="team grid margin padding">
         <h2 class="team__title">What's <span class="title--pink">VIX Digital</span> ?</h2>
-        <img src="images/vix-pub.jpg" alt="VIX team at pub" class="team__img">
-        <a href="team.html" class="team__button button--filled">Meet us</a>
+        {% image self.intro_image max-1440x810 as intro_image %}
+        <img src="{{ intro_image.url }}" alt="VIX team at pub" class="team__img">
+        <a href="team.html" class="team__button button--filled">{{ self.intro_button }}</a>
         <div class="team__paragraphs-container">
-            <p class="team__paragraph">
-                We are a full service digital agency specialising in providing digital services to the public sector with teams in Warrington, London, Leeds and Sheffield. Our clients include NHS Digital, NHS England and Public Health England.
-            </p>
-            <p class="team__paragraph">
-                From complex CMS websites to bespoke product development, we work with our clients to build software that solves problems. Combining research, service design, software development and architecture, we work with clients throughout the lifecycle of their project from discovery through to building the live service and ongoing support.
-            </p>
-            <p class="team__paragraph">
-                Our multidisciplinary team spans designers to developers to information architects all with experience delivering projects in both the public and private sector. We use this experience to offer consultation services to help you create the right digital strategy for your team and service, as well as choosing the right technology for the job.
-            </p>
+            {% for paragraph in page.intro_content %}
+                {% include_block paragraph %}
+            {% endfor %}
         </div>
     </section>
 
     <section id="services" class="services grid margin padding">
         <h2 class="services__title">What we <span class="title--pink">do</span> ?</h2>
-        <div class="service__container shadow-box service__container--odd service__container--one">
-            <img src="images/blob/blob1.svg" alt="Blob shape" class="blob blob1">
-            <img src="images/wagtail.svg" alt="Wagtail logo" class="service__img">
-            <h3 class="service__title">Wagtail specialists</h3>
-            <p class="service__description">We’re one of the leading Wagtail development agencies in the UK. We’ve worked with the NHS and Public Health England to create custom Wagtail services. Whether you’re an SME or a large organisation we can build website that serves your needs.</p>
-        </div>
-        <div class="service__container shadow-box service__container--even service__container--two">
-            <img src="images/blob/blob2.svg" alt="Blob shape" class="blob blob2">
-            <img src="images/design.svg" alt="Design services" class="service__img">
-            <h3 class="service__title">Service design</h3>
-            <p class="service__description">Our design process focuses on humans. We work with organisations to understand the needs of their users, enabling us to create bespoke, human-centred design. We work closely with with accessibility standards and GDS principles.</p>
-        </div>
-        <div class="service__container shadow-box service__container--odd service__container--three">
-            <img src="images/blob/blob3.svg" alt="Blob shape" class="blob blob3">
-            <img src="images/development.svg" alt="Development" class="service__img">
-            <h3 class="service__title">Applications &
-                    websites</h3>
-            <p class="service__description">We create pioneering web and mobile applications. Working with the latest technology to understand how it can help our clients. Take a look at our retainers to see how we can help you.</p>
-        </div>
-        <div class="service__container shadow-box service__container--even service__container--four">
-            <img src="images/blob/blob4.svg" alt="Blob shape" class="blob blob4">
-            <img src="images/user.svg" alt="User research" class="service__img">
-            <h3 class="service__title">User research</h3>
-            <p class="service__description">We believe user research is a team sport and an ongoing process. Our projects start with a discovery phase, where we begin to understand your user needs using techniques such as prototyping workshops, persona development and user interviews.</p>
-        </div>
-        <div class="service__container shadow-box service__container--odd service__container--five">
-            <img src="images/blob/blob5.svg" alt="Blob shape" class="blob blob5">
-            <img src="images/consultation.svg" alt="Consultation" class="service__img">
-            <h3 class="service__title">Consultation</h3>
-            <p class="service__description">Our team has over 20 years of experience in all things digital from interoperability to content migration. We work with our clients to advise and help them develop digital strategies, implement the right tech and deliver digital projects that answer their organisational needs.</p>
-        </div>
-        <div class="service__container shadow-box service__container--even service__container--six">
-            <img src="images/blob/blob6.svg" alt="Blob shape" class="blob blob6">
-            <img src="images/hosting.svg" alt="Hosting & support" class="service__img">
-            <h3 class="service__title">Hosting & support</h3>
-            <p class="service__description">We offer unique support packages with all of our software. Relieving organisations of the worries and pressures that come with taking care of live software. Our retainers provide the best ongoing support for projects.</p>
-        </div>
+            {% for service in page.service %}
+                {% include_block service %}
+            {% endfor %}
         <a href="#" class="button--filled services__button--filled">More</a>
         <a href="#" class="button--stroke services__button--stroke">Playbook</a>
     </section>
-
-    <section class="portfolio grid margin padding">
-        <h2 class="portfolio__title">
-            What we <span class="title--pink">did</span> ?
-        </h2>
-        <article class="portfolio__project portfolio__project--first">
-            <a href="#"><img src="images/project1.jpg" alt="ABCD Clarity" class="project__img"></a>
-            <hr class="project__separator">
-            <div class="project__details">
-                <p>ABCD Clarity</p>
-                <a class="project__link" href="#">> View project</a>
-            </div>
-        </article>
-        <article class="portfolio__project portfolio__project--second">
-            <a href="#"><img src="images/project2.jpg" alt="NHS Digital" class="project__img"></a>
-            <hr class="project__separator">
-            <div class="project__details">
-                <p>NHS Digital</p>
-                <a class="project__link" href="#">> View project</a>
-            </div>
-        </article>
-    </section>
-
-    <section class="client margin grid padding">
-        <h2 class="client__title">What our <span class="title--pink">clients say</span> about us ?</h2>
-        <div class="shadow-box client__container">
-            <cite class="client__project__title">DMI Dashboard</cite>
-            <img src="images/quote.svg" alt="Open quote" class="quote quote--open">
-            <blockquote class="client__quote" cite="index.html">Working with VIX Digital agency has allowed my organisation to move from working with clients using clumsy excel spreadsheets to now running digital platforms across the NHS.</blockquote>
-            <img src="images/quote.svg" alt="Open quote" class="quote quote--close">
-            <address class="client__name">- DILLON SYKES</address>
-        </div>
-        <img src="images/logo/bletchley.png" alt="Bletchley" class="client__logo--first">
-        <img src="images/logo/dof.png" alt="Department of Health" class="client__logo--second">
-        <img src="images/logo/hamiltons.png" alt="Hamiltons house" class="client__logo--first">
-        <img src="images/logo/movember.png" alt="Movember foundation" class="client__logo--second">
-        <img src="images/logo/nhs.png" alt="NHS England" class="client__logo--first">
-        <img src="images/logo/twentyfourseven.png" alt="Twentyfour seven" class="client__logo--second">
-    </section>
-
-    <section class="news grid margin padding">
-        <h2 class="news__title">What's <span class="title--pink">new</span> at VIX Digital ?</h2>
-        <article class="shadow-box news__card">
-            <img src="" alt="" class="blob blob8">
-            <img src="images/retreat-kylian.jpg" alt="VIX team on a boat" class="news__img">
-            <h3 class="news__post-title">Kylian's internship at VIX</h3>
-            <p class="news__excerpt">So, this week is the last week for me in England... <a href="#" class="news__read-more">read more</a></p>
-            <footer class="news__details">
-                <a href="#" class="news__author">By Kylian</a>
-                <p class="news__date">Jan. 8, 2019</p>
-            </footer>
-        </article>
-        <article class="shadow-box news__card">
-            <img src="" alt="" class="blob blob8">
-            <img src="images/retreat.jpg" alt="VIX retreat" class="news__img">
-            <h3 class="news__post-title">The VIX Retreat</h3>
-            <p class="news__excerpt">We’ve had an intense few months at VIX, working on a variety of new projects... <a href="#" class="news__read-more">read more</a></p>
-            <footer class="news__details">
-                <a href="#" class="news__author">By Chelsea Shaw</a>
-                <p class="news__date">Nov. 23, 2019</p>
-            </footer>
-        </article>
-        <article class="shadow-box news__card">
-            <img src="" alt="" class="blob blob8">
-            <img src="images/friction-friday.jpg" alt="Our friction friday ceremonie" class="news__img">
-            <h3 class="news__post-title">Friction friday</h3>
-            <p class="news__excerpt">At VIX Digital we have multiple clients often with different priorities and needs... <a href="#" class="news__read-more">read more</a></p>
-            <footer class="news__details">
-                <a href="#" class="news__author">By Chelsea Shaw</a>
-                <p class="news__date">Jan. 8, 2019</p>
-            </footer>
-        </article>
-    </section>
-
-    <footer class="main-footer grid margin padding">
-        <p class="main-footer__contact">VIX Digital LTD © 2018 / info@vix.digital / Warrington, WA4 1AT<br><a href="#" class="main-footer__policy">Privacy Policy</a></p>
-        <div class="main-footer__social-container">
-            <a target="_blank" href="https://github.com/vixdigital"><img src="images/github.svg" alt="GitHub logo" class="main-footer__social-img"></a>
-            <a target="_blank" href="https://twitter.com/vix_digital"><img src="images/twitter.svg" alt="Twitter logo" class="main-footer__social-img"></a>
-            <a target="_blank" href="https://www.youtube.com/channel/UCMcOkcdRBmnHLEg87cg7EYQ?view_as=subscriber"><img src="images/youtube.svg" alt="Youtube logo" class="main-footer__social-img"></a>
-        </div>
-    </footer>
 {% endblock %}

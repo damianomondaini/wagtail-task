@@ -782,16 +782,16 @@ p {
     .services__title {
         grid-column: 1 / 7
     }
-    .service__container--one,
-    .service__container--four {
+    .services > :nth-child(2),
+    .services > :nth-child(5) {
         grid-column: 1 / 3
     }
-    .service__container--two,
-    .service__container--five {
+    .services > :nth-child(3),
+    .services > :nth-child(6) {
         grid-column: 3 / 5
     }
-    .service__container--three,
-    .service__container--six {
+    .services > :nth-child(4),
+    .services > :nth-child(7) {
         grid-column: 5 / 7
     }
     .services__button--filled {
@@ -808,34 +808,34 @@ p {
     width: 80%
 }
 
-.blob1 {
+.services > :nth-child(2) > .blob {
     top: 0;
     left: 0;
     transform: translate(-30px, -30px)
 }
 
-.blob2 {
+.services > :nth-child(3) > .blob {
     top: 0;
     transform: translate(25px, -50px)
 }
 
-.blob3 {
+.services > :nth-child(4) > .blob {
     top: 0;
     right: 0;
     transform: translate(50px, -50px)
 }
 
-.blob4 {
+.services > :nth-child(5) > .blob {
     bottom: 0;
     transform: translate(-65px, 30px)
 }
 
-.blob5 {
+.services > :nth-child(6) > .blob {
     bottom: 0;
     transform: translate(55px, 25px)
 }
 
-.blob6 {
+.services > :nth-child(7) > .blob {
     bottom: 0;
     right: 0;
     transform: translate(20px, 10px)

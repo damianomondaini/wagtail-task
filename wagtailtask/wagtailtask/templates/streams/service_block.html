@@ -1,0 +1,8 @@
+{% for service in self.service %}
+    <div class="service__container shadow-box">
+        <img src="{{ service.blob.url }}" alt="Blob shape" class="blob">
+        <img src="{{ service.image.url }}" alt="{{ service.image.title }}" class="service__img">
+        <h3 class="service__title">{{ service.title }}</h3>
+        <p class="service__description">{{ service.description }}</p>
+    </div>
+{% endfor %}
