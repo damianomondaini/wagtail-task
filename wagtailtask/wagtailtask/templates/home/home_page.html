@@ -22,4 +22,30 @@
         <a href="#" class="button--filled services__button--filled">More</a>
         <a href="#" class="button--stroke services__button--stroke">Playbook</a>
     </section>
+
+    <section class="portfolio grid margin padding">
+        <h2 class="portfolio__title">
+            What we <span class="title--pink">did</span> ?
+        </h2>
+        {% for project in page.project %}
+            {% include_block project %}
+        {% endfor %}
+    </section>
+
+    <section class="client margin grid padding">
+        <h2 class="client__title">What our <span class="title--pink">clients say</span> about us ?</h2>
+        <div class="shadow-box client__container">
+            <cite class="client__project__title">DMI Dashboard</cite>
+            <img src="images/quote.svg" alt="Open quote" class="quote quote--open">
+            <blockquote class="client__quote" cite="index.html">Working with VIX Digital agency has allowed my organisation to move from working with clients using clumsy excel spreadsheets to now running digital platforms across the NHS.</blockquote>
+            <img src="images/quote.svg" alt="Open quote" class="quote quote--close">
+            <address class="client__name">- DILLON SYKES</address>
+        </div>
+        <img src="images/logo/bletchley.png" alt="Bletchley" class="client__logo--first">
+        <img src="images/logo/dof.png" alt="Department of Health" class="client__logo--second">
+        <img src="images/logo/hamiltons.png" alt="Hamiltons house" class="client__logo--first">
+        <img src="images/logo/movember.png" alt="Movember foundation" class="client__logo--second">
+        <img src="images/logo/nhs.png" alt="NHS England" class="client__logo--first">
+        <img src="images/logo/twentyfourseven.png" alt="Twentyfour seven" class="client__logo--second">
+    </section>
 {% endblock %}

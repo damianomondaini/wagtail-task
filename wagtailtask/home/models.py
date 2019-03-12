@@ -1,7 +1,7 @@
 from django.db import models
 
 from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, PageChooserPanel
 from wagtail.core.fields import StreamField
 from wagtail.images.edit_handlers import ImageChooserPanel
 
@@ -26,9 +26,18 @@ class HomePage(Page):
         blank=True
     )
     intro_button = models.CharField(max_length=50, null=False, blank=True)
+
     service = StreamField(
         [
             ("service", blocks.ServiceBlock())
+        ],
+        null=False,
+        blank=True
+    )
+
+    project = StreamField(
+        [
+            ("project", blocks.ProjectBlock())
         ],
         null=False,
         blank=True
@@ -39,4 +48,5 @@ class HomePage(Page):
         StreamFieldPanel("intro_content"),
         ImageChooserPanel("intro_image"),
         StreamFieldPanel("service"),
+        StreamFieldPanel("project"),
     ]

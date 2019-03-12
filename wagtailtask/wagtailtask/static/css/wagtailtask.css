@@ -1312,10 +1312,10 @@ p {
     .project__details>* {
         font-size: 0.9em
     }
-    .portfolio__project--first {
+    .portfolio > :nth-child(2) {
         grid-column: 5 / 9
     }
-    .portfolio__project--second {
+    .portfolio > :nth-child(3) {
         grid-column: 9 / 13
     }
     .job__opportunity {
@@ -1324,10 +1324,10 @@ p {
 }
 
 @media (min-width: 1025px) {
-    .portfolio__project--first {
+    .portfolio > :nth-child(2) {
         grid-column: 1 / 7
     }
-    .portfolio__project--second {
+    .portfolio > :nth-child(3) {
         grid-column: 7 / 13
     }
 }

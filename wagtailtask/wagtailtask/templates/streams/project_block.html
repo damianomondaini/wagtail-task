@@ -1,0 +1,12 @@
+{% for project in self.project %}
+    {% load wagtailimages_tags %}
+    <article class="portfolio__project">
+        {% image project.image max-1200x900 as img %}
+        <a href="#"><img src="{{ img.url }}" alt="{{ project.client }}" class="project__img"></a>
+        <hr class="project__separator">
+        <div class="project__details">
+            <p>{{ project.client }}</p>
+            <a class="project__link" href="#">> View project</a>
+        </div>
+    </article>
+{% endfor %}

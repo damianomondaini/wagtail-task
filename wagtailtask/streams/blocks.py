@@ -1,6 +1,7 @@
 from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.documents.blocks import DocumentChooserBlock
+from wagtail.core.blocks import PageChooserBlock
 
 class TextBlock(blocks.StructBlock):
     text = blocks.TextBlock(required=True, help_text="Add text")
@@ -26,3 +27,19 @@ class ServiceBlock(blocks.StructBlock):
         template = "streams/service_block.html"
         icon = "form"
         label = "Service"
+
+class ProjectBlock(blocks.StructBlock):
+    project = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("image", ImageChooserBlock(required=True)),
+                ("client", blocks.CharBlock(required=True, max_length=30)),
+                ("link", PageChooserBlock(required=True)),
+            ]
+        )
+    )
+
+    class Meta:
+        template = "streams/project_block.html"
+        icon = "folder"
+        label = "Project"
