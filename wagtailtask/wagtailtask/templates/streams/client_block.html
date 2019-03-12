@@ -1,0 +1,24 @@
+{% for client in self.client %}
+    {% load wagtailimages_tags %}
+    <div class="shadow-box client__container">
+        <cite class="client__project__title">{{ client.project }}</cite>
+        <img src="{{ client.quote.url }}" alt="Open quote" class="quote quote--open">
+        <blockquote class="client__quote" cite="index.html">{{ client.testimonial }}</blockquote>
+        <img src="{{ client.quote.url }}" alt="Open quote" class="quote quote--close">
+        <address class="client__name">- {{ client.client }}</address>
+    </div>
+
+    {% image client.logo1 max-200x200 as logo1 %}
+    {% image client.logo2 max-200x200 as logo2 %}
+    {% image client.logo3 max-200x200 as logo3 %}
+    {% image client.logo4 max-200x200 as logo4 %}
+    {% image client.logo5 max-200x200 as logo5 %}
+    {% image client.logo6 max-200x200 as logo6 %}
+    
+    <img src="{{ logo1.url }}" alt="Bletchley" class="client__logo--first">
+    <img src="{{ logo2.url }}" alt="Department of Health" class="client__logo--second">
+    <img src="{{ logo3.url }}" alt="Hamiltons house" class="client__logo--first">
+    <img src="{{ logo4.url }}" alt="Movember foundation" class="client__logo--second">
+    <img src="{{ logo5.url }}" alt="NHS England" class="client__logo--first">
+    <img src="{{ logo6.url }}" alt="Twentyfour seven" class="client__logo--second">
+{% endfor %}

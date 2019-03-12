@@ -43,10 +43,19 @@ class HomePage(Page):
         blank=True
     )
 
+    client = StreamField(
+        [
+            ("client", blocks.ClientBlock())
+        ],
+        null=False,
+        blank=True
+    )
+
     content_panels = Page.content_panels + [
         FieldPanel("intro_button"),
         StreamFieldPanel("intro_content"),
         ImageChooserPanel("intro_image"),
         StreamFieldPanel("service"),
         StreamFieldPanel("project"),
+        StreamFieldPanel("client"),
     ]

@@ -43,3 +43,26 @@ class ProjectBlock(blocks.StructBlock):
         template = "streams/project_block.html"
         icon = "folder"
         label = "Project"
+
+class ClientBlock(blocks.StructBlock):
+    client = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("project", blocks.CharBlock(required=True, max_length=50)),
+                ("testimonial", blocks.CharBlock(required=True, max_length=350)),
+                ("client", blocks.CharBlock(required=True, max_length=50)),
+                ("quote", DocumentChooserBlock(required=True)),
+                ("logo1", ImageChooserBlock(required=True)),
+                ("logo2", ImageChooserBlock(required=True)),
+                ("logo3", ImageChooserBlock(required=True)),
+                ("logo4", ImageChooserBlock(required=True)),
+                ("logo5", ImageChooserBlock(required=True)),
+                ("logo6", ImageChooserBlock(required=True)),
+            ]
+        )
+    )
+
+    class Meta:
+        template = "streams/client_block.html"
+        icon = "user"
+        label = "Client"
