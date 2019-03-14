@@ -72,6 +72,15 @@
 
         {% block content %}{% endblock %}
 
+        <footer class="main-footer grid margin padding">
+            <p class="main-footer__contact">VIX Digital LTD © 2018 / info@vix.digital / Warrington, WA4 1AT<br><a href="#" class="main-footer__policy">Privacy Policy</a></p>
+            <div class="main-footer__social-container">
+                <a target="_blank" href="https://github.com/vixdigital"><img src="{% static 'img/github.svg' %}" alt="GitHub logo" class="main-footer__social-img"></a>
+                <a target="_blank" href="https://twitter.com/vix_digital"><img src="{% static 'img/twitter.svg' %}" alt="Twitter logo" class="main-footer__social-img"></a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCMcOkcdRBmnHLEg87cg7EYQ?view_as=subscriber"><img src="{% static 'img/youtube.svg' %}" alt="Youtube logo" class="main-footer__social-img"></a>
+            </div>
+        </footer>
+
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
