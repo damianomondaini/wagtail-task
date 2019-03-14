@@ -107,3 +107,18 @@ class TeamBlock(blocks.StructBlock):
         template = "streams/team_block.html"
         icon = "user"
         label = "Team"
+
+class JobBlock(blocks.StructBlock):
+    job = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=100)),
+                ("category", blocks.CharBlock(required=True, max_length=50)),
+            ]
+        )
+    )
+
+    class Meta:
+        template = "streams/job_block.html"
+        icon = "doc-full"
+        label = "Job"

@@ -15,5 +15,12 @@
             <h3 class="member__name">Want to work with us ?</h3>
         </div>
     </section>
+
+    <section class="job grid margin padding" id="job">
+        <h2 class="job__title">Take a look to our <span class="title--pink">current opportunities</span> !</h2>
+        {% for job in page.job %}
+            {% include_block job %}
+        {% endfor %}
+    </section>
 {% endblock %}
 

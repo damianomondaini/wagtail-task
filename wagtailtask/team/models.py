@@ -18,6 +18,15 @@ class TeamPage(Page):
         blank=True
     )
 
+    job = StreamField(
+        [
+            ("job", blocks.JobBlock())
+        ],
+        null=False,
+        blank=True
+    )
+
     content_panels = Page.content_panels + [
         StreamFieldPanel("team"),
+        StreamFieldPanel("job"),
     ]

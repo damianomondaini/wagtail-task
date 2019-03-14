@@ -1,0 +1,10 @@
+{% for job in self.job %}
+<article class="job__opportunity">
+    <a href="#"><div class="job__name">{{ job.title }}</div></a>
+    <hr class="job__separator">
+    <div class="job__details">
+        <h4>{{ job.category }} job</h4>
+        <a class="project__link" href="#">> See more</a>
+    </div>
+</article>
+{% endfor %}
