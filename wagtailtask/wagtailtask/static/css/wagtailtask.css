@@ -545,7 +545,7 @@ p {
         grid-column: 2 / 3;
         width: 100%;
         height: 100%;
-        background-image: url("../images/wave-landing.svg");
+        background-image: url("../img/wave-landing.svg");
         background-repeat: no-repeat;
         background-position: left center;
         background-size: cover;
