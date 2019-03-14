@@ -1,0 +1,13 @@
+{% for news in self.news %}
+    {% load wagtailimages_tags %}
+    <article class="shadow-box news__card">
+            {% image news.image max-1200x900 as img %}
+            <img src="{{ img.url }}" alt="{{ img }}" class="news__img">
+            <h3 class="news__post-title">{{ news.title }}</h3>
+            <p class="news__excerpt">{{ news.content }}... <a href="#" class="news__read-more">read more</a></p>
+            <footer class="news__details">
+                <a href="#" class="news__author">By {{ news.author }}</a>
+                <p class="news__date">{{ news.date }}</p>
+            </footer>
+    </article>
+{% endfor %}

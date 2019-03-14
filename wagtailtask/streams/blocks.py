@@ -3,6 +3,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.documents.blocks import DocumentChooserBlock
 from wagtail.core.blocks import PageChooserBlock
 
+
 class TextBlock(blocks.StructBlock):
     text = blocks.TextBlock(required=True, help_text="Add text")
 
@@ -10,6 +11,7 @@ class TextBlock(blocks.StructBlock):
         template = "streams/text_block.html"
         icon = "edit"
         label = "Text"
+
 
 class ServiceBlock(blocks.StructBlock):
     service = blocks.ListBlock(
@@ -28,6 +30,7 @@ class ServiceBlock(blocks.StructBlock):
         icon = "form"
         label = "Service"
 
+
 class ProjectBlock(blocks.StructBlock):
     project = blocks.ListBlock(
         blocks.StructBlock(
@@ -44,12 +47,15 @@ class ProjectBlock(blocks.StructBlock):
         icon = "folder"
         label = "Project"
 
+
 class ClientBlock(blocks.StructBlock):
     client = blocks.ListBlock(
         blocks.StructBlock(
             [
                 ("project", blocks.CharBlock(required=True, max_length=50)),
-                ("testimonial", blocks.CharBlock(required=True, max_length=350)),
+                ("testimonial", blocks.CharBlock(
+                    required=True, max_length=350
+                )),
                 ("client", blocks.CharBlock(required=True, max_length=50)),
                 ("quote", DocumentChooserBlock(required=True)),
                 ("logo1", ImageChooserBlock(required=True)),
@@ -66,3 +72,22 @@ class ClientBlock(blocks.StructBlock):
         template = "streams/client_block.html"
         icon = "user"
         label = "Client"
+
+
+class NewsBlock(blocks.StructBlock):
+    news = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("image", ImageChooserBlock(required=True)),
+                ("title", blocks.CharBlock(required=True, max_length=50)),
+                ("content", blocks.CharBlock(required=True, max_length=100)),
+                ("author", blocks.CharBlock(required=True, max_length=50)),
+                ("date", blocks.DateBlock(required=True,)),
+            ]
+        )
+    )
+
+    class Meta:
+        template = "streams/news_block.html"
+        icon = "plus"
+        label = "News"

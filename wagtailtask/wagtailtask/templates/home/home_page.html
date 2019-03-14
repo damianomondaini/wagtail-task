@@ -1,4 +1,4 @@
-{% extends "home.html" %}
+{% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
@@ -36,6 +36,13 @@
         <h2 class="client__title">What our <span class="title--pink">clients say</span> about us ?</h2>
         {% for client in page.client %}
             {% include_block client %}
+        {% endfor %}
+    </section>
+
+    <section class="news grid margin padding">
+        <h2 class="news__title">What's <span class="title--pink">new</span> at VIX Digital ?</h2>
+        {% for news in page.news %}
+            {% include_block news %}
         {% endfor %}
     </section>
 {% endblock %}
