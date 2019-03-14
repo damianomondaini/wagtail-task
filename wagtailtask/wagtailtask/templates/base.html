@@ -29,6 +29,47 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
+        <div id="overlay" class="overlay">
+            <div class="overlay__inner grid">
+                <a onclick="closeNav()" class="overlay__cross-link" href="#"><img class="overlay__cross-img" src="{% static 'img/cross.svg' %}" alt="Cross"></a>
+            </div>
+            <nav class="overlay__nav">
+                <ul class="overlay__list">
+                    <li class="overlay__item"><a href="#">INSIGHTS</a></li>
+                    <li class="overlay__item"><a href="#">THE TEAM</a></li>
+                    <li class="overlay__item"><a href="#">PLAYBOOK</a></li>
+                    <li class="overlay__item"><a href="#">SERVICES</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <header class="main-header main-header--small grid">
+            <a class="main-header__logo--small" href="index.html"><img src="{% static 'img/vix-logo.svg' %}" alt="VIX Logo"></a>
+            <nav class="main-header__nav">
+                <ul>
+                    <li class="main-header__nav--big"><a href="#">INSIGHTS</a></li>
+                    <li class="main-header__nav--big"><a href="">THE TEAM</a></li>
+                    <li class="main-header__nav--big"><a href="#">PLAYBOOK</a></li>
+                    <li class="main-header__nav--big"><a href="#">SERVICES</a></li>
+                    <li class="main-header__nav--small"><a onclick="openNav()" href="#"><img class="main-header__hamburger" src="{% static 'img/hamburger.svg' %}" alt="Hamburger menu"></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        {% if request.path != "/" %}
+            <header class="second-header">
+                <nav class="second-header__nav">
+                    <ul>
+                        <li class="second-header__logo"><a href="index.html"><img src="images/vix-logo-pink.svg" alt="VIX Logo"></a></li>
+                        <li class="second-header__nav--big"><a href="#">INSIGHTS</a></li>
+                        <li class="second-header__nav--big"><a href="team.html">THE TEAM</a></li>
+                        <li class="second-header__nav--big"><a href="#">PLAYBOOK</a></li>
+                        <li class="second-header__nav--big"><a href="#">SERVICES</a></li>
+                    </ul>
+                </nav>
+            </header>
+        {% endif %}
+
         {% block content %}{% endblock %}
 
         {# Global javascript #}

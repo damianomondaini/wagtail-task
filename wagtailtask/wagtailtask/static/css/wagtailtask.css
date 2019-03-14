@@ -404,7 +404,7 @@ p {
 
 .main-header::after {
     content: '';
-    background-image: url("../images/wave-header.svg");
+    background-image: url("../img/wave-header.svg");
     position: absolute;
     top: 79px;
     width: 100%;
