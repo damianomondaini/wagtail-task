@@ -1,0 +1,11 @@
+{% for team in self.team %}
+    {% load wagtailimages_tags %}
+        {% image team.image max-1000x1000 as img %}
+        <div class="member">
+            <div class="member-container">
+                <p class="member-function">{{ team.role }}</p>
+                <img class="member-image" src="{{ img.url }}" alt="{{ team.name }}">
+            </div>
+            <h3 class="member__name">{{ team.name }}</h3>
+        </div>
+{% endfor %}

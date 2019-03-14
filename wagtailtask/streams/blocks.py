@@ -91,3 +91,19 @@ class NewsBlock(blocks.StructBlock):
         template = "streams/news_block.html"
         icon = "plus"
         label = "News"
+
+class TeamBlock(blocks.StructBlock):
+    team = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("image", ImageChooserBlock(required=True)),
+                ("name", blocks.CharBlock(required=True, max_length=50)),
+                ("role", blocks.CharBlock(required=True, max_length=100)),
+            ]
+        )
+    )
+
+    class Meta:
+        template = "streams/team_block.html"
+        icon = "user"
+        label = "Team"
