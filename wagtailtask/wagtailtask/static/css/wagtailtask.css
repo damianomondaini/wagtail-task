@@ -795,10 +795,10 @@ p {
         grid-column: 5 / 7
     }
     .services__button--filled {
-        grid-column: 1 / 4
+        grid-column: 2 / 4
     }
     .services__button--stroke {
-        grid-column: 4 / 7
+        grid-column: 4 / 6
     }
 }
 
