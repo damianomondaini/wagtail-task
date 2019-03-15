@@ -6,8 +6,8 @@
         <div class="landing__container">
             <h1 class="landing__title">We are<br><span class="title--pink">VIX Digital</span></h1>
             <div class="landing__button-container">
-                <a class="landing__button button--filled" href="#team">Who we are ?</a>
-                <a class="landing__button button--stroke" href="#services">What we do ?</a>
+                <a class="landing__button button--filled" href="#team">Who we are?</a>
+                <a class="landing__button button--stroke" href="#services">What we do?</a>
             </div>
         </div>
         <div class="landing__wave">
@@ -27,12 +27,12 @@
 
     <section class="landing landing--small grid">
         <h1 class="landing__title">We are<br><span class="title--pink">VIX Digital</span></h1>
-        <a class="landing__button button--filled" href="#team">Who we are ?</a>
-        <a class="landing__button button--stroke" href="#services">What we do ?</a>
+        <a class="landing__button button--filled" href="#team">Who we are?</a>
+        <a class="landing__button button--stroke" href="#services">What we do?</a>
     </section>
 
     <section id="team" class="team grid margin padding">
-        <h2 class="team__title">What's <span class="title--pink">VIX Digital</span> ?</h2>
+        <h2 class="team__title">What's <span class="title--pink">VIX Digital</span>?</h2>
         {% image self.intro_image max-1440x810 as intro_image %}
         <img src="{{ intro_image.url }}" alt="VIX team at pub" class="team__img">
         <a href="team.html" class="team__button button--filled">{{ self.intro_button }}</a>
@@ -44,7 +44,7 @@
     </section>
 
     <section id="services" class="services grid margin padding">
-        <h2 class="services__title">What we <span class="title--pink">do</span> ?</h2>
+        <h2 class="services__title">What we <span class="title--pink">do</span>?</h2>
             {% for service in page.service %}
                 {% include_block service %}
             {% endfor %}
@@ -54,7 +54,7 @@
 
     <section class="portfolio grid margin padding">
         <h2 class="portfolio__title">
-            What we <span class="title--pink">did</span> ?
+            What we <span class="title--pink">did</span>?
         </h2>
         {% for project in page.project %}
             {% include_block project %}
@@ -62,14 +62,14 @@
     </section>
 
     <section class="client margin grid padding">
-        <h2 class="client__title">What our <span class="title--pink">clients say</span> about us ?</h2>
+        <h2 class="client__title">What our <span class="title--pink">clients say</span> about us?</h2>
         {% for client in page.client %}
             {% include_block client %}
         {% endfor %}
     </section>
 
     <section class="news grid margin padding">
-        <h2 class="news__title">What's <span class="title--pink">new</span> at VIX Digital ?</h2>
+        <h2 class="news__title">What's <span class="title--pink">new</span> at VIX Digital?</h2>
         {% for news in page.news %}
             {% include_block news %}
         {% endfor %}
